@@ -14,13 +14,15 @@ export const DrinksCategories = ({data, id}) => {
     id === currentPage && (
       <View style={styles.container}>
         <Text>{data.filter}</Text>
-        {data.arr.map(i => {
+        {data.arr.map((i, index) => {
           return (
-            <DrinkItem
-              key={i.idDrink}
-              itemName={i.strDrink}
-              image={i.strDrinkThumb}
-            />
+            index < 40 && (
+              <DrinkItem
+                key={i.idDrink}
+                itemName={i.strDrink}
+                image={i.strDrinkThumb}
+              />
+            )
           );
         })}
         <Paginator pagesCount={dataArr.length} />
